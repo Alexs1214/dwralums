@@ -13,11 +13,13 @@ class AlumsController < ApplicationController
     end
 
     if params[:keyword] != nil
-      @search = params[:keyword].downcase.split(" ")
+      @search = params[:keyword].split(" ")
       @alumsselect = Array.new
       @search.each do |search|
         @alum = Alum.where("name LIKE ? OR year LIKE ? OR location LIKE ? OR industry LIKE ? OR company LIKE ? OR title LIKE ? OR other LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
         @alumsselect = @alumsselect + @alum
+      end
+      if @alumsselect != nil
         @alums = @alumsselect
       end
     end
