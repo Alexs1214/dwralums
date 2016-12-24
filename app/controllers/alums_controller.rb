@@ -1,17 +1,7 @@
 class AlumsController < ApplicationController
   def index
 
-    if params[:keyword] != nil
-      @search = params[:keyword].split(" ")
-      @alums = Array.new
-      @search.each do |search|
-        @alum = Alum.where("name LIKE ? OR year LIKE ? OR location LIKE ? OR industry LIKE ? OR company LIKE ? OR title LIKE ? OR other LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
-        @alums = @alums + @alum
-      end
-    else
-      @alums = Alum.all
-    end
-
+    @alums = Alum.all
 
     @years = Array.new
     @locations = Array.new
@@ -22,10 +12,33 @@ class AlumsController < ApplicationController
       @industries.push(alum.industry)
     end
 
+    if params[:keyword] != nil
+      @search = params[:keyword].downcase.split(" ")
+      @alumsselect = Array.new
+      @search.each do |search|
+        @alum = Alum.where("name LIKE ? OR year LIKE ? OR location LIKE ? OR industry LIKE ? OR company LIKE ? OR title LIKE ? OR other LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+        @alumsselect = @alumsselect + @alum
+        @alums = @alumsselect
+      end
+    end
+
     @keywordselect = params[:keyword]
     @yearselect = params[:year]
     @locationselect = params[:location]
     @industryselect = params[:industry]
+
+    if @yearselect != "" && @yearselect != nil
+      @alums = @alums.where({ :year => @yearselect })
+    end
+
+    if @locationselect != "" && @locationselect != nil
+      @alums = @alums.where({ :location => @locationselect })
+    end
+
+    if @industryselect != "" && @industryselect != nil
+      @alums = @alums.where({ :industry => @industryselect })
+    end
+
 
       render("alums/index.html.erb")
   end

@@ -24,13 +24,13 @@
       <dd><%= @alum.title %></dd>
 
       <dt>Website</dt>
-      <dd><%= @alum.website %></dd>
+      <dd><a href="<%= @alum.website %>"><%= @alum.website %></a></dd>
 
       <dt>Other</dt>
       <dd><%= @alum.other %></dd>
 
       <dt>Email</dt>
-      <dd><%= @alum.email %></dd>
+      <dd><a href="mailto:<%= @alum.email %>"><%= @alum.email %></a></dd>
 
     </dl>
 
