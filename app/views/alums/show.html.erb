@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3><%= @alum.name %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Year</dt>
+      <dd><%= @alum.year %></dd>
+
+      <dt>Major</dt>
+      <dd><%= @alum.major %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @alum.location %></dd>
+
+      <dt>Industry</dt>
+      <dd><%= @alum.industry %></dd>
+
+      <dt>Company</dt>
+      <dd><%= @alum.company %></dd>
+
+      <dt>Title</dt>
+      <dd><%= @alum.title %></dd>
+
+      <dt>Website</dt>
+      <dd><%= @alum.website %></dd>
+
+      <dt>Other</dt>
+      <dd><%= @alum.other %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @alum.email %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/alums" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/alums/<%= @alum.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_alum/<%= @alum.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

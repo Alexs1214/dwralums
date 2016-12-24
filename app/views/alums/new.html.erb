@@ -1,0 +1,118 @@
+<!-- Validation failure messages -->
+<% if @alum.errors.any? %>
+  <% @alum.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Alum</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_alum" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @alum.name %>">
+      </div>
+
+      <!-- Label and input for year -->
+      <div class="form-group">
+        <label for="year" class="control-label">
+          Year
+        </label>
+
+        <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @alum.year %>">
+      </div>
+
+      <!-- Label and input for major -->
+      <div class="form-group">
+        <label for="major" class="control-label">
+          Major
+        </label>
+
+        <input type="text" id="major" name="major" placeholder="Major" class="form-control" value="<%= @alum.major %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @alum.location %>">
+      </div>
+
+      <!-- Label and input for industry -->
+      <div class="form-group">
+        <label for="industry" class="control-label">
+          Industry
+        </label>
+
+        <input type="text" id="industry" name="industry" placeholder="Industry" class="form-control" value="<%= @alum.industry %>">
+      </div>
+
+      <!-- Label and input for company -->
+      <div class="form-group">
+        <label for="company" class="control-label">
+          Company
+        </label>
+
+        <input type="text" id="company" name="company" placeholder="Company" class="form-control" value="<%= @alum.company %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @alum.title %>">
+      </div>
+
+      <!-- Label and input for website -->
+      <div class="form-group">
+        <label for="website" class="control-label">
+          Website
+        </label>
+
+        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @alum.website %>">
+      </div>
+
+      <!-- Label and input for other -->
+      <div class="form-group">
+        <label for="other" class="control-label">
+          Other
+        </label>
+
+        <textarea id="other" name="other" placeholder="Other" class="form-control" rows="3"><%= @alum.other %></textarea>
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @alum.email %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Alum
+      </button>
+      or
+      <a href="/alums">Cancel</a>
+    </form>
+  </div>
+</div>

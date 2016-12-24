@@ -1,0 +1,96 @@
+<div class="page-header">
+  <h1>
+    Duke Women's Rowing Alumnae
+    <a href="/alums/new" class="btn btn-sm btn-success">+</a>
+  </h1>
+</div>
+
+<div class="row filter-row">
+  <div class="col-md-12">
+
+    <form class="form-inline" action="">
+
+      <div class="form-group">
+        <label for="keyword">Keywords</label>
+        <% if @keywordselect != "" && @keywordselect != nil %>
+          <input type="text" class="form-control" id="keyword" name="keyword" value="<%= @keywordselect %>">
+        <% else %>
+          <input type="text" class="form-control" id="keyword" name="keyword" value="" placeholder="Keywords (e.g., name, company)">
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year of Graduation</label>
+        <select class="form-control" id="year" name="year">
+          <% if @yearselect != "" && @yearselect != nil %>
+            <option value="<%= @yearselect %>"><%= @yearselect %></option>
+          <% end %>
+          <option value="">--</option>
+          <% @years.uniq.sort.each do |year| %>
+            <option value="<%= year %>"><%= year %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <select class="form-control" id="location" name="location">
+          <% if @locationselect != "" && @locationselect != nil %>
+            <option value="<%= @locationselect %>"><%= @locationselect %></option>
+          <% end %>
+          <option value="">--</option>
+          <% @locations.uniq.sort.each do |location| %>
+            <option value="<%= location %>"><%= location %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="industry">Industry</label>
+        <select class="form-control" id="industry" name="industry">
+          <% if @industryselect != "" && @industryselect != nil %>
+            <option value="<%= @industryselect %>"><% @industryselect %></option>
+          <% end %>
+          <option value="">--</option>
+          <% @industries.uniq.sort.each do |industry| %>
+            <option value="<%= industry %>"><%= industry %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" name="button">Search</button>
+      </div>
+
+      <div class="form-group">
+        <a href="/alums">reset</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Location</th>
+        <th>Industry</th>
+        <th>Company</th>
+        <th>Title</th>
+      </tr>
+
+      <% @alums.each do |alum| %>
+      <tr>
+        <td><a href="/alums/<%= alum.id %>"><%= alum.name %></a></td>
+        <td><%= alum.year %></td>
+        <td><%= alum.location %></td>
+        <td><%= alum.industry %></td>
+        <td><%= alum.company %></td>
+        <td><%= alum.title %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
