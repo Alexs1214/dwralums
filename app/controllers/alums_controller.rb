@@ -12,23 +12,13 @@ class AlumsController < ApplicationController
       @industries.push(alum.industry)
     end
 
-    if params[:keyword] != nil
-      @search = params[:keyword].split(" ")
-      @alumsselect = Array.new
-      @search.each do |search|
-        @alum = Alum.where("name LIKE ? OR year LIKE ? OR location LIKE ? OR industry LIKE ? OR company LIKE ? OR title LIKE ? OR other LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
-        @alumsselect = @alumsselect + @alum
-      end
-      if @alumsselect != nil
-        @alums = @alumsselect
-      end
-    end
-
     @keywordselect = params[:keyword]
     @yearselect = params[:year]
     @locationselect = params[:location]
     @industryselect = params[:industry]
 
+
+    # searches for year, location, industry
     if @yearselect != "" && @yearselect != nil
       @alums = @alums.where({ :year => @yearselect })
     end
@@ -41,6 +31,35 @@ class AlumsController < ApplicationController
       @alums = @alums.where({ :industry => @industryselect })
     end
 
+
+    if params[:keyword] != nil && params[:keyword] != ""
+      @search = params[:keyword].split(" ")
+      @alumsselect = Array.new
+
+      # @alums.as_json.each do |alum|
+      #   match = 0
+      #   @search.each do |term|
+      #     # loop through search terms, look to see if it matches any category -- if matches, break and set variable to 1, if no match, set to 0 and move to next search term
+      #     # (currently doesn't work)
+      #     if alum.has_value?(term) == true
+      #       match = match + 1
+      #       break
+      #     end
+      #   end
+      #   # each alum must have greater than or equal to # of search term matches, and add to the list
+      #   if @search.count >= match
+      #     @alumsselect = @alumsselect + alum.to_a
+      #   end
+      # end
+
+      @search.each do |term|
+        @alum = @alums.where("lower(name) LIKE ? OR year LIKE ? OR lower(location) LIKE ? OR lower(industry) LIKE ? OR lower(company) LIKE ? OR lower(title) LIKE ? OR lower(other) LIKE ?", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
+        @alumsselect = @alumsselect + @alum
+      end
+
+      @alums = @alumsselect.uniq
+
+    end
 
       render("alums/index.html.erb")
   end
