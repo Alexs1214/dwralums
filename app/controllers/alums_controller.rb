@@ -53,7 +53,7 @@ class AlumsController < ApplicationController
       # end
 
       @search.each do |term|
-        @alum = @alums.where("lower(name) LIKE ? OR year LIKE ? OR lower(location) LIKE ? OR lower(industry) LIKE ? OR lower(company) LIKE ? OR lower(title) LIKE ? OR lower(other) LIKE ?", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
+        @alum = @alums.where("lower(name) LIKE ? OR cast(year as varchar(4)) LIKE ? OR lower(location) LIKE ? OR lower(industry) LIKE ? OR lower(company) LIKE ? OR lower(title) LIKE ? OR lower(other) LIKE ?", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
         @alumsselect = @alumsselect + @alum
       end
 
