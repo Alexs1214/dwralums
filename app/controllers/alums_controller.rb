@@ -33,7 +33,7 @@ class AlumsController < ApplicationController
 
 
     if params[:keyword] != nil && params[:keyword] != ""
-      @search = params[:keyword].split(" ")
+      @search = params[:keyword].downcase.split(" ")
       @alumsselect = Array.new
 
       # @alums.as_json.each do |alum|
