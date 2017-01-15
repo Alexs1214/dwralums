@@ -8,7 +8,7 @@
   padding-bottom: 50px;
 }
 
-.search-form .form-control{
+.form-control {
   max-width: 200px;
 }
 
@@ -57,6 +57,21 @@
 .btn-danger:hover {
   background-color: #b72d00;
   border-color: #b72d00;
+}
+
+.alert-success {
+  background-color: #0680cd;
+  border-color: #0680cd;
+}
+
+.alert-warning {
+  background-color: #ffd960;
+  border-color: #ffd960;
+}
+
+.alert-danger {
+  background-color: #cc3300;
+  border-color: #cc3300;
 }
 
 /*
