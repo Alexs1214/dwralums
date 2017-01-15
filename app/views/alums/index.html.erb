@@ -26,7 +26,7 @@
             <option value="<%= @yearselect %>"><%= @yearselect %></option>
           <% end %>
           <option value="">--</option>
-          <% @years.uniq.sort.each do |year| %>
+          <% @years.uniq.sort.reverse.each do |year| %>
             <option value="<%= year %>"><%= year %></option>
           <% end %>
         </select>
