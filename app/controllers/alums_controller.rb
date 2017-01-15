@@ -1,4 +1,6 @@
 class AlumsController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   def index
 
     @alums = Alum.all
@@ -61,7 +63,13 @@ class AlumsController < ApplicationController
 
     end
 
-      render("alums/index.html.erb")
+    if params[:keyword] != nil && params[:keyword] != ""
+      @alums = @alums.sort_by!{|k| k[sort_column]}
+    else
+      @alums = @alums.order(sort_column + " " + sort_direction)
+    end
+
+    render("alums/index.html.erb")
   end
 
   def show
@@ -139,4 +147,15 @@ class AlumsController < ApplicationController
       redirect_to(:back, :notice => "Alum deleted.")
     end
   end
+
+  private
+
+  def sort_column
+    Alum.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
 end

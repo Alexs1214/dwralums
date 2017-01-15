@@ -73,12 +73,12 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Name</th>
-        <th>Year</th>
-        <th>Location</th>
-        <th>Industry</th>
-        <th>Company</th>
-        <th>Title</th>
+        <th><%= sortable "name" %></th>
+        <th><%= sortable "year" %></th>
+        <th><%= sortable "location" %></th>
+        <th><%= sortable "industry" %></th>
+        <th><%= sortable "company" %></th>
+        <th><%= sortable "title" %></th>
       </tr>
 
       <% @alums.each do |alum| %>

@@ -8,6 +8,9 @@
   padding-bottom: 50px;
 }
 
+.form-control{
+  max-width: 200px;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
