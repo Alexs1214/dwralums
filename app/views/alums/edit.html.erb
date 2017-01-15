@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Alum #<%= @alum.id %></h3>
+  <h3>Edit Alum </h3>
 </div>
 
 <div class="row">
@@ -25,6 +25,15 @@
         </label>
 
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @alum.name %>">
+      </div>
+
+      <!-- Label and input for maiden name -->
+      <div class="form-group">
+        <label for="maiden_name" class="control-label">
+          Maiden Name
+        </label>
+
+        <input type="text" id="maiden_name" name="maiden_name" placeholder="(leave blank if n/a)" class="form-control" value="<%= @alum.maiden_name %>">
       </div>
 
       <!-- Label and input for year -->
@@ -108,7 +117,7 @@
         <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @alum.email %>">
       </div>
 
-      <button class="btn btn-warning">
+      <button class="btn btn-success">
         Update Alum
       </button>
       or

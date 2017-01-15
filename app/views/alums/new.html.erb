@@ -27,6 +27,15 @@
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @alum.name %>">
       </div>
 
+      <!-- Label and input for maiden name -->
+      <div class="form-group">
+        <label for="maiden_name" class="control-label">
+          Maiden Name
+        </label>
+
+        <input type="text" id="maiden_name" name="maiden_name" placeholder="(leave blank if n/a)" class="form-control" value="<%= @alum.maiden_name %>">
+      </div>
+
       <!-- Label and input for year -->
       <div class="form-group">
         <label for="year" class="control-label">
