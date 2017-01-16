@@ -1,6 +1,6 @@
-# Photogram / Auth
+# Duke Women's Rowing Database
 
-In this project, we'll practice tailoring the experience for users by allowing them to sign in so that we know who they are. We'll use the Devise gem to make authentication a snap.
+<!-- In this project, we'll practice tailoring the experience for users by allowing them to sign in so that we know who they are. We'll use the Devise gem to make authentication a snap.
 
 We'll be building a simple clone of [Instagram](https://www.instagram.com/).
 
@@ -171,4 +171,4 @@ Below I suggest a plan of attack. Try to imagine, as you go through it, how each
 
 Submit as usual by syncing to your fork and `rake grade`.
 
-## The skills covered in this assignment are relevant to 99% of your project ideas. Ask lots of questions and book office hours! Good luck!
+## The skills covered in this assignment are relevant to 99% of your project ideas. Ask lots of questions and book office hours! Good luck! -->
