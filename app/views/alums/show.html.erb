@@ -1,5 +1,9 @@
 <div class="page-header">
-  <h3><%= @alum.name %></h3>
+  <% if @alum.maiden_name != nil && @alum.maiden_name != "" %>
+    <h3><%= @alum.name + " (née " + @alum.maiden_name + ")" %></h3>
+  <% else %>
+    <h3><%= @alum.name %></h3>
+  <% end %>
 </div>
 
 <div class="row">

@@ -88,6 +88,7 @@ class AlumsController < ApplicationController
     @alum = Alum.new
 
     @alum.name = params[:name]
+    @alum.maiden_name = params[:maiden_name]
     @alum.year = params[:year]
     @alum.major = params[:major]
     @alum.location = params[:location]
@@ -117,6 +118,7 @@ class AlumsController < ApplicationController
     @alum = Alum.find(params[:id])
 
     @alum.name = params[:name]
+    @alum.maiden_name = params[:maiden_name]
     @alum.year = params[:year]
     @alum.major = params[:major]
     @alum.location = params[:location]
